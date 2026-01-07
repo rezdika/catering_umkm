@@ -1,0 +1,30 @@
+/* Custom brand colors */
+.bg-brand-black { background-color: #000000; }
+.bg-brand-red { background-color: #8E1616; }
+.bg-brand-cream { background-color: #E8C999; }
+.bg-brand-light { background-color: #F8EEDF; }
+.text-brand-black { color: #000000; }
+.text-brand-red { color: #8E1616; }
+.text-brand-cream { color: #E8C999; }
+.text-brand-light { color: #F8EEDF; }
+
+/* Font Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.font-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.font-subheading {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+body, p, span, div, a, button {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}

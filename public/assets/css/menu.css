@@ -1,0 +1,18 @@
+/* Menu Page Specific Styles */
+.font-playfair {
+    font-family: 'Playfair Display', serif;
+}
+
+.font-poppins {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Custom brand colors */
+.bg-brand-black { background-color: #000000; }
+.bg-brand-red { background-color: #8E1616; }
+.bg-brand-cream { background-color: #E8C999; }
+.bg-brand-light { background-color: #F8EEDF; }
+.text-brand-black { color: #000000; }
+.text-brand-red { color: #8E1616; }
+.text-brand-cream { color: #E8C999; }
+.text-brand-light { color: #F8EEDF; }
