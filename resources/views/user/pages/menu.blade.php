@@ -40,6 +40,90 @@ $breadcrumbs = [
 
 @include('user.partials.breadcrumb')
 
+<!-- Panduan Pemesanan -->
+<section class="py-8 relative" style="background-image: url('{{ asset('assets/img/bg-panduan.png') }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center space-x-3 mb-4">
+            <button id="togglePanduan" class="flex items-center space-x-2 text-brand-red hover:text-brand-black transition duration-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span class="font-semibold">📋 Panduan Pemesanan</span>
+                <svg id="panduanArrow" class="w-4 h-4 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </button>
+            <img src="{{ asset('assets/img/panah.png') }}" alt="Panah" class="w-8 h-8 opacity-60">
+        </div>
+        
+        <div id="panduanContent" class="hidden bg-white rounded-lg shadow-sm p-6 border-l-4 border-brand-red">
+            <h3 class="text-xl font-bold text-brand-black mb-4">🍽️ PANDUAN PEMESANAN MAKANAN</h3>
+            
+            <div class="space-y-4 text-brand-black">
+                <div>
+                    <h4 class="font-semibold text-brand-red mb-2">1. PILIH MENU</h4>
+                    <ul class="list-disc list-inside text-sm space-y-1 ml-4">
+                        <li>Browse menu yang tersedia</li>
+                        <li>Pastikan menu yang dipilih masih tersedia (stok > 0)</li>
+                        <li>Klik "Tambah ke Keranjang" pada menu yang diinginkan</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-brand-red mb-2">2. KERANJANG BELANJA</h4>
+                    <ul class="list-disc list-inside text-sm space-y-1 ml-4">
+                        <li>Login terlebih dahulu untuk menambah ke keranjang</li>
+                        <li>Minimum pemesanan: <strong>10 porsi total</strong></li>
+                        <li>Cek kembali pesanan Anda di halaman keranjang</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-brand-red mb-2">3. PILIH PENGIRIMAN</h4>
+                    <ul class="list-disc list-inside text-sm space-y-1 ml-4">
+                        <li>Motor: untuk 10 porsi (Rp 15.000 + Rp 2.000/km)</li>
+                        <li>Mobil: untuk 11+ porsi (Rp 25.000 + Rp 3.000/km)</li>
+                        <li>Pilih area pengiriman sesuai lokasi Anda</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-brand-red mb-2">4. JADWAL PENGIRIMAN</h4>
+                    <ul class="list-disc list-inside text-sm space-y-1 ml-4">
+                        <li>Pesan sebelum jam <strong>15:00</strong> untuk pengiriman besok</li>
+                        <li>Pesan setelah jam 15:00 untuk pengiriman lusa</li>
+                        <li>Pilih tanggal dan jam pengiriman yang diinginkan</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-brand-red mb-2">5. PEMBAYARAN</h4>
+                    <ul class="list-disc list-inside text-sm space-y-1 ml-4">
+                        <li>Transfer Bank (BCA/BNI) - upload bukti transfer</li>
+                        <li>QRIS - upload bukti pembayaran</li>
+                        <li>COD - bayar saat makanan diantar</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-brand-red mb-2">6. KONFIRMASI PESANAN</h4>
+                    <ul class="list-disc list-inside text-sm space-y-1 ml-4">
+                        <li>Pesanan akan diverifikasi tim keuangan (1x24 jam)</li>
+                        <li>Dapur akan memproses pesanan yang sudah verified</li>
+                        <li>Kurir akan mengantar sesuai jadwal yang dipilih</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-6 p-4 bg-brand-light rounded-lg">
+                <p class="text-sm text-brand-black">
+                    <strong>📞 Butuh bantuan?</strong> Hubungi: <a href="tel:+6282126099407" class="text-brand-red font-semibold hover:underline">+62 821-2609-9407</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Menu Content -->
 <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -228,4 +312,19 @@ $breadcrumbs = [
 
 @push('scripts')
 <script src="{{ asset('assets/js/menu.js') }}"></script>
+<script>
+// Toggle Panduan Pemesanan
+document.getElementById('togglePanduan').addEventListener('click', function() {
+    const content = document.getElementById('panduanContent');
+    const arrow = document.getElementById('panduanArrow');
+    
+    if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        arrow.style.transform = 'rotate(180deg)';
+    } else {
+        content.classList.add('hidden');
+        arrow.style.transform = 'rotate(0deg)';
+    }
+});
+</script>
 @endpush
